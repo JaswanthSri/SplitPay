@@ -2,67 +2,134 @@
 
 **Smart bill splitting made simple**
 
-A modern web application for fairly splitting restaurant bills and group expenses. Built with Next.js and deployed on AWS.
+🌐 **Live Demo:** [http://splitpay-app.s3-website.ap-south-1.amazonaws.com/](http://splitpay-app.s3-website.ap-south-1.amazonaws.com/)
 
-## 🌐 Live Demo
-
-**Website:** http://splitpay-app.s3-website.ap-south-1.amazonaws.com/
+SplitPay is a modern web application that makes splitting restaurant bills and group expenses fair and effortless. Built with React and Next.js, it handles complex splitting scenarios while maintaining a clean, intuitive interface.
 
 ## ✨ Features
 
-- 🍽️ **Two Splitting Methods**: Even split or contribution-based
-- 📝 **Individual Item Tracking**: Track what each person ordered
-- 🤝 **Shared Items Support**: Handle shared appetizers and desserts
-- 💸 **Smart Tax Handling**: Tax always split fairly
-- 🎨 **Modern UI**: Dark theme with responsive design
-- 📱 **Mobile Friendly**: Works perfectly on all devices
+### 🍽️ Two Splitting Methods
+- **Split Evenly**: Divide total bill + tax equally among everyone
+- **Split by Contribution**: Pay for what you ordered + equal tax share
 
-## 🚀 Tech Stack
+### 📝 Individual Item Tracking
+- Each person can specify number of items they ordered
+- Enter individual cost for each item
+- Real-time subtotal calculations
 
-- **Frontend:** Next.js 14, React 18, TypeScript
-- **Styling:** Tailwind CSS
-- **Hosting:** AWS S3 Static Website
-- **Deployment:** Manual upload / GitHub Actions
+### 🤝 Shared Items Support
+- Add items shared between specific people
+- Select who participated in each shared item
+- Automatic cost distribution among sharers
 
-## 🛠️ Local Development
+### 💸 Smart Tax Handling
+- Enter tax charges directly in Rs.
+- Tax always split equally (fair for everyone)
+- Clear breakdown of individual vs. tax costs
 
+### 🎨 Modern UI/UX
+- Dark theme with beautiful gradient backgrounds
+- Fully responsive design (mobile, tablet, desktop)
+- Clean card-based layout
+- Smooth animations and hover effects
+
+## 🚀 Live Application
+
+Visit the live application: **[SplitPay Calculator](http://splitpay-app.s3-website.ap-south-1.amazonaws.com/)**
+
+## 🛠️ Built With
+
+- **Next.js 14** - React framework with App Router
+- **React 18** - UI library with hooks
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Utility-first styling
+- **AWS S3** - Static website hosting
+
+## 📱 How to Use
+
+### Basic Setup
+1. Enter total bill amount in Rs.
+2. Enter tax charges in Rs.
+3. Specify number of people
+
+### Choose Split Method
+- **Even Split**: For simple equal division
+- **Contribution Split**: For fair individual-based splitting
+
+### For Contribution Split
+1. Enter each person's name
+2. Specify number of items they ordered
+3. Enter cost for each individual item
+4. Add any shared items and select who shared them
+5. Click "Calculate Bill"
+
+### Results
+- See exactly what each person owes
+- Detailed breakdown of individual costs vs. tax share
+- Clear summary with total amounts
+
+## 🎯 Use Cases
+
+Perfect for:
+- Restaurant outings with friends
+- Office lunch groups
+- Family dinners
+- Group trips and shared meals
+- Any scenario requiring fair bill splitting
+
+## 🌟 Key Benefits
+
+- **Fair Splitting**: No more overpaying for others' expensive orders
+- **Handles Complexity**: Manages individual items + shared items seamlessly  
+- **Indian Currency**: Built specifically for Rs. with proper formatting
+- **Mobile Optimized**: Calculate bills right at the restaurant table
+- **No Registration**: Start using immediately, no sign-up required
+
+## 🚀 Getting Started (Development)
+
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
 \`\`\`bash
-# Clone the repository
 git clone https://github.com/yourusername/splitpay.git
 cd splitpay
-
-# Install dependencies
-npm install
-
-# Run development server
-npm run dev
-
-# Build for production
-npm run build
 \`\`\`
 
-## 🌟 How to Use
+2. Install dependencies
+\`\`\`bash
+npm install --legacy-peer-deps
+\`\`\`
 
-1. Enter total bill amount and tax charges in ₹
-2. Specify number of people
-3. Choose splitting method (Even or By Contribution)
-4. For contribution-based: Enter individual items and costs
-5. Add shared items if applicable
-6. Calculate and see detailed breakdown
+3. Run the development server
+\`\`\`bash
+npm run dev
+\`\`\`
 
-## 🚀 Deployment
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-This app is deployed on AWS S3 with static website hosting.
-
-### Manual Deployment
+### Build for Production
 \`\`\`bash
 npm run build
-# Upload contents of 'out/' folder to S3 bucket
 \`\`\`
 
-### Automated Deployment
-Push to main branch triggers automatic deployment via GitHub Actions.
+## 🌐 Deployment
 
-## 📄 License
+This application is deployed on AWS S3 with static website hosting.
 
-MIT License - feel free to use this project!
+**Live URL:** [http://splitpay-app.s3-website.ap-south-1.amazonaws.com/](http://splitpay-app.s3-website.ap-south-1.amazonaws.com/)
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Built with modern React patterns and Next.js best practices
+- Inspired by the need for fair bill splitting in group dining
+- Designed with Indian currency and dining culture in mind
+
+
