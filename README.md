@@ -50,20 +50,20 @@ SplitPay is a modern web application engineered to simplify the process of split
 ## Usage Guide
 
 ### Basic Setup
-1.  Enter the total bill amount in Rs.
-2.  Input the tax charges in Rs.
-3.  Specify the number of people involved.
+1. Enter the total bill amount in Rs.
+2. Input the tax charges in Rs.
+3. Specify the number of people involved.
 
 ### Selecting a Split Method
 * Choose **Even Split** for straightforward, equal division.
 * Select **Contribution Split** for fair, individual-based cost allocation.
 
 ### For Contribution Split
-1.  Enter each person's name.
-2.  Specify the quantity of items ordered by each individual.
-3.  Enter the cost for each individual item.
-4.  Add any shared items and designate the participants for each.
-5.  Click "**Calculate Bill**" to view results.
+1. Enter each person's name.
+2. Specify the quantity of items ordered by each individual.
+3. Enter the cost for each individual item.
+4. Add any shared items and designate the participants for each.
+5. Click "**Calculate Bill**" to view results.
 
 ### Understanding Results
 * View a precise breakdown of what each person owes.
@@ -101,43 +101,45 @@ SplitPay is an ideal solution for:
 
 ### Installation
 
-1.  Clone the repository:
-    ```bash
-    git clone [https://github.com/JaswanthSri/splitpay.git](https://github.com/JaswanthSri/splitpay.git)
-    cd splitpay
-    ```
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/JaswanthSri/splitpay.git
+   cd splitpay
+   ```
 
-2.  Install dependencies:
-    ```bash
-    npm install --legacy-peer-deps
-    ```
+2. Install dependencies:
+   ```bash
+   npm install --legacy-peer-deps
+   ```
 
-3.  Run the development server:
-    ```bash
-    npm run dev
-    ```
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-4.  Open [http://localhost:3000](http://localhost:3000) in your browser.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ### Building for Production
 ```bash
 npm run build
+```
 
-
-## Deployment
+### Deployment
 
 This application is deployed on AWS S3 with static website hosting.
 
 **Live URL:** [http://splitpay-app.s3-website.ap-south-1.amazonaws.com/](http://splitpay-app.s3-website.ap-south-1.amazonaws.com/)
 
+---
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
 
 ## Acknowledgments
 
 - Developed using modern React patterns and Next.js best practices.
 - Conceived from the practical need for fair bill splitting in group dining scenarios.
 - Designed with specific consideration for Indian currency and dining culture.
-
-
