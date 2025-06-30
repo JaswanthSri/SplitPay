@@ -2,7 +2,7 @@
 
 **Smart bill splitting made simple**
 
-🌐 **Live Demo:** [http://splitpay-app.s3-website.ap-south-1.amazonaws.com/](http://splitpay-app.s3-website.ap-south-1.amazonaws.com/)
+🌐 **Live Demo:** [SplitPay Calculator](http://splitpay-app.s3-website.ap-south-1.amazonaws.com/)
 
 SplitPay is a modern web application that makes splitting restaurant bills and group expenses fair and effortless. Built with React and Next.js, it handles complex splitting scenarios while maintaining a clean, intuitive interface.
 
