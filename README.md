@@ -122,7 +122,7 @@ SplitPay is an ideal solution for:
 ### Building for Production
 ```bash
 npm run build
-'''
+
 
 ## Deployment
 
