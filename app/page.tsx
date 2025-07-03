@@ -7,7 +7,7 @@ const App = () => {
   const [totalBill, setTotalBill] = useState("")
   const [taxCharges, setTaxCharges] = useState("")
   const [numPeople, setNumPeople] = useState(1)
-  const [people, setPeople] = useState([]) // Array to store individual person data, now with itemCosts
+  const [people, setPeople] = useState([])
   const [sharedItems, setSharedItems] = useState([])
   const [splitOption, setSplitOption] = useState("contributed")
   const [calculationResults, setCalculationResults] = useState(null)
@@ -29,26 +29,28 @@ const App = () => {
 
   // Effect to initialize people array when numPeople changes
   useEffect(() => {
-    const newPeople = Array.from({ length: numPeople }, (_, i) => {
-      const existingPerson = people[i]
-      return existingPerson
-        ? {
-            ...existingPerson,
-            // Ensure itemCosts array length matches numberOfItems if it's already set
-            itemCosts: existingPerson.itemCosts
-              ? Array.from({ length: existingPerson.numberOfItems || 0 }, (_, j) => existingPerson.itemCosts[j] || "")
-              : [],
-          }
-        : { id: `person-${i}`, name: "", numberOfItems: "", itemCosts: [] }
+    setPeople((prevPeople) => {
+      const newPeople = Array.from({ length: numPeople }, (_, i) => {
+        const existingPerson = prevPeople[i]
+        return existingPerson
+          ? {
+              ...existingPerson,
+              itemCosts: existingPerson.itemCosts
+                ? Array.from({ length: existingPerson.numberOfItems || 0 }, (_, j) => existingPerson.itemCosts[j] || "")
+                : [],
+            }
+          : { id: `person-${i}`, name: "", numberOfItems: "", itemCosts: [] }
+      })
+
+      setSharedItems((prevSharedItems) =>
+        prevSharedItems.map((item) => ({
+          ...item,
+          sharedBy: item.sharedBy.filter((sharerId) => newPeople.some((p) => p.id === sharerId)),
+        })),
+      )
+
+      return newPeople
     })
-    setPeople(newPeople)
-    // Clear shared items if people count shrinks and affects existing sharers
-    setSharedItems((prevSharedItems) =>
-      prevSharedItems.map((item) => ({
-        ...item,
-        sharedBy: item.sharedBy.filter((sharerId) => newPeople.some((p) => p.id === sharerId)),
-      })),
-    )
   }, [numPeople])
 
   // Handle change for individual person's name or number of items
@@ -57,7 +59,6 @@ const App = () => {
     if (field === "numberOfItems") {
       const num = Number.parseInt(value) || 0
       updatedPeople[index].numberOfItems = num
-      // Initialize itemCosts array with empty strings based on new number of items
       updatedPeople[index].itemCosts = Array.from({ length: num }, (_, i) => updatedPeople[index].itemCosts[i] || "")
     } else {
       updatedPeople[index][field] = value
@@ -126,7 +127,6 @@ const App = () => {
         }
       })
     } else {
-      // splitOption === 'contributed'
       const individualContributions = {}
 
       people.forEach((person) => {
@@ -164,12 +164,10 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-[#0A1931] p-4 sm:p-6 flex items-center justify-center font-sans">
-      {/* Inject custom CSS for spinner removal */}
       <style>{spinnerStyles}</style>
 
       <div className="bg-[#1F2F4C] p-6 rounded-xl shadow-xl w-full max-w-2xl text-white">
         <h1 className="text-3xl font-extrabold text-[#F7DC6F] mb-6 text-center">SplitPay</h1>
-
         {/* Main Bill & Tax Inputs */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
           <div>
@@ -266,7 +264,6 @@ const App = () => {
                       min="0"
                     />
                   </div>
-                  {/* Individual Item Cost Inputs */}
                   {person.numberOfItems > 0 && (
                     <div className="mt-4 border-t border-[#2B4061] pt-4">
                       <p className="text-[#C0C0C0] text-sm font-semibold mb-2">
